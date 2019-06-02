@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreInjecaoDependencia.Models;
+using AspNetCoreInjecaoDependencia.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +18,9 @@ namespace AspNetCoreInjecaoDependencia
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddScoped<MessageService, MessageService>();
+            services.AddTransient<MessageDatabase, MessageDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
