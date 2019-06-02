@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetCoreInjecaoDependencia.Models;
+﻿using AspNetCoreInjecaoDependencia.Models;
 using AspNetCoreInjecaoDependencia.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreInjecaoDependencia.Controllers
@@ -22,9 +17,9 @@ namespace AspNetCoreInjecaoDependencia.Controllers
             message.Subject = "Subject of the email here.";
             message.Body = "Content of the email here.";
 
-            var service = new MessageService(message);
+            var service = new MessageService();
 
-            if (service.Send())
+            if (service.Send(message))
             {
                 return AcceptedAtAction("SendMailMessage", true);
             }
@@ -41,9 +36,9 @@ namespace AspNetCoreInjecaoDependencia.Controllers
             message.Subject = "Subject of the message here.";
             message.Body = "Content of the message here.";
 
-            var service = new MessageService(message);
+            var service = new MessageService();
 
-            if (service.Send())
+            if (service.Send(message))
             {
                 return AcceptedAtAction("SendPhoneMessage", true);
             }
