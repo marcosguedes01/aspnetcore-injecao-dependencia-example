@@ -8,17 +8,15 @@ namespace AspNetCoreInjecaoDependencia.Controllers
     [ApiController]
     public class MessageController : ControllerBase
     {
-        private readonly MessageService service;
         private readonly MessageDatabase database;
 
-        public MessageController(MessageService service, MessageDatabase database)
+        public MessageController(MessageDatabase database)
         {
-            this.service = service;
             this.database = database;
         }
 
         [HttpGet, Route("sendmail")]
-        public IActionResult SendMailMessage()
+        public IActionResult SendMailMessage([FromServices] MessageService service)
         {
             var message = new Message();
             message.From = "from-email@domain.com";
@@ -37,7 +35,7 @@ namespace AspNetCoreInjecaoDependencia.Controllers
         }
 
         [HttpGet, Route("sendmessage")]
-        public IActionResult SendPhoneMessage()
+        public IActionResult SendPhoneMessage([FromServices] MessageService service)
         {
             var message = new Message();
             message.From = "+5581982738474";
