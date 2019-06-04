@@ -2,3 +2,5 @@
 .vscode
 AspNetCoreInjecaoDependencia/bin
 AspNetCoreInjecaoDependencia/obj
+AspNetCoreExampleTest/bin
+AspNetCoreExampleTest/obj

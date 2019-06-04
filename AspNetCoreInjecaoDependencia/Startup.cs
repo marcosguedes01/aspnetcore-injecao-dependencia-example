@@ -19,8 +19,8 @@ namespace AspNetCoreInjecaoDependencia
         {
             services.AddMvc();
 
-            services.AddScoped<MessageService, MessageService>();
-            services.AddTransient<MessageDatabase, MessageDatabase>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddTransient<IMessageDatabase, MessageDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

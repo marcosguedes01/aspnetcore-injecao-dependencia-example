@@ -2,7 +2,7 @@
 
 namespace AspNetCoreInjecaoDependencia.Services
 {
-    public class MessageDatabase
+    public class MessageDatabase : IMessageDatabase
     {
         public string Type { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace AspNetCoreInjecaoDependencia.Services
 {
-    public class MessageService
+    public class MessageService : IMessageService
     {
         public bool Send(Message message)
         {
